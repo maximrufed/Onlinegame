@@ -1,0 +1,30 @@
+.state {
+    position: absolute;
+    left: 100px;
+    top: 100px;
+    font-size: xx-large;
+    color: #801474;
+}
+
+.games {
+    position: absolute;
+    left: 600px;
+    font-size: 20px;
+    border-style: solid;
+    border-color: green;
+    top: 50px;
+}
+
+.map {
+    position: absolute;
+    left: 100px;
+    border-style: solid;
+    border-color: green;
+    max-width: 500px;
+    min-width: 500px;
+    max-height: 500px;
+    min-height: 500px;
+    height: 500px;
+    width: 500px;
+    top: 100px;
+}
