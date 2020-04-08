@@ -30,8 +30,8 @@ function create($n) {
     file_put_contents("map.json", $json);
 }
 
-$value = file_get_contents('./bots/map.txt');
-$cmd = "bot3.exe args file-name";
+$value = file_get_contents('map.txt');
+$cmd = "bot1.exe args file-name";
 echo $value . '<br>';
 echo $cmd . '<br>';
 exec($cmd,$output,$rv);

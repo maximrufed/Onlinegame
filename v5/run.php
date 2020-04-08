@@ -310,10 +310,60 @@ if (isset($_POST['n']) && !$is_game
         }
         put_map($t);
 
+
+//        if (isset($_POST['p1'], $_POST['p2'], $_POST['res']) && $_POST['p1'] != '' && $_POST['p2'] != '') {
+	$p1 = $_POST['p1'];
+        $p2 = $_POST['p2'];
+        if ($p1 != $p2) {
+//            
+//            $res = intval($_POST['res']);
+            $res = intval($winner);
+            $json = json_decode(file_get_contents("data2.json"));
+            if ($res >= 0 && $res <= 2) {
+                $text = $_POST['p1'] . '#' . $_POST['p2'];
+                if (isset($json->$text)) {
+                    $j = json_decode($json->$text);
+                    if ($res == 0) {
+                        $j->w1 += 1;
+                    } else if ($res == 1) {
+                        $j->w3 += 1;
+                    } else if ($res == 2) {
+                        $j->w2 += 1;
+                    }
+                    $json->$text = json_encode($j);
+                } else {
+                    $text = $_POST['p2'] . '#' . $_POST['p1'];
+                    if (isset($json->$text)) {
+                        $j = json_decode($json->$text);
+                        if ($res == 0) {
+                            $j->w1 += 1;
+                        } else if ($res == 1) {
+                            $j->w3 += 1;
+                        } else if ($res == 2) {
+                            $j->w2 += 1;
+                        }
+                        $json->$text = json_encode($j);
+                    } else {
+                        $j = array("w1" => 0, "w2" => 0, "w3" => 0);
+                        if ($res == 0) {
+                            $j['w1'] += 1;
+                        } else if ($res == 1) {
+                            $j['w3'] += 1;
+                        } else if ($res == 2) {
+                            $j['w2'] += 1;
+                        }
+                        $json->$text = json_encode($j);
+                    }
+                }
+                file_put_contents('data2.json', json_encode($json));
+            }
+
+        }
+
     }
 
 //    echo $msg . '<br>';
-    put_map($t);
+//    put_map($t);
 //    while ($value > 0) {
 //        $value--;
 //			$value = file_get_contents("map.txt");
@@ -330,7 +380,7 @@ if (isset($_POST['n']) && !$is_game
 
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>Run game</title>
+    <title>Новая игра</title>
     <link rel="stylesheet" type="text/css" href="Style.css">
     <script src="jquery.js"></script>
 <!--    <script type="text/javascript" src="show.js"></script>-->
@@ -339,6 +389,9 @@ if (isset($_POST['n']) && !$is_game
 
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <body>
+<form action="index.php">
+    <input type="submit" class="back" value="Назад">
+</form>
 <form action = "run.php" method = "post">
     <div class="bot1">
             <?php

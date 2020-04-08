@@ -5,13 +5,8 @@
 	<script type="text/javascript" src="main.js"></script>
 </head>
 <body>
-    <form action="view.php">
-        <p>View the game:
-            <input type="submit" value="View"></p>
-    </form>
-    <form action="run.php">
-        <p>Run the game:
-            <input type="submit" value="View"></p>
-    </form>
-
+    <a href="view.php">View</a>
+    <br>
+    <a href="run.php">Run</a>
+    <a href="show.php">Show</a>
 </body>
