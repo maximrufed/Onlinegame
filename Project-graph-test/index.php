@@ -1,17 +1,15 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <head>
     <meta charset="utf-8">
     <title>Main</title>
     <link rel="stylesheet" type="text/css" href="Style.css">
 </head>
 <body>
-    <div class="w">
-        Rules
-    </div>
     <?php
         include 'menu.php';
     ?>
-    <div>
+    <div class="w">Rules</div>
+    <div class="big">
         <h1>Игра короли</h1>
         <p>
             Правила игры:<br>
