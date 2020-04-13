@@ -23,8 +23,8 @@ function upd() {
 			// $('#res').html(data);
 			let json = JSON.parse(data);
 			let n = parseInt(json['n']);
-			$('#l').html(json['p1']);
-			$('#r').html(json['p2']);
+			if ($('#l').text() != json['p1']) $('#l').text(json['p1']);
+			if ($('#r').text() != json['p2']) $('#r').text(json['p2']);
 			let text = json['msg'];
 			if (text == '') text = 'Game is in process';
 			if ($('#res').text() != text) {
