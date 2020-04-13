@@ -7,12 +7,13 @@
     <script type="text/javascript" src="show.js"></script>
 </head>
 <body>
-    <div class="w">
-        View the game
-    </div>
+    
     <?php
         include 'menu.php';
     ?>
+    <div class="w">
+        View the game
+    </div>
 <!--    <img src="x.png" width="100" height="100" alt="no img">-->
 <!--    <div class = "w" id = "res2">-->
 <!---->

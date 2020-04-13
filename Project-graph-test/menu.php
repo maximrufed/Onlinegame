@@ -7,7 +7,7 @@
         </div>
     </a>
     <a href="show.php">
-        <div class="block">
+        <div class="block block2">
             <p>
                 View
             </p>
@@ -21,7 +21,7 @@
         </div>
     </a>
     <a href="upload_1.php">
-        <div class="block">
+        <div class="block block2">
             <p>
                 Submit
             </p>
