@@ -23,7 +23,11 @@ function upd() {
 			// $('#res').html(data);
 			let json = JSON.parse(data);
 			let n = parseInt(json['n']);
-			let text = json['msg'] + ' ' + json['p1'] + ' VS ' + json['p2'];
+			$('#l').html(json['p1']);
+			$('#r').html(json['p2']);
+			///let text = json['msg'] + ' ' + json['p1'] + ' VS ' + json['p2'];
+			let text = json['msg'];
+			if (text == '') text = 'Game is in process';
 			// $('#res2').text(text);
 			// $('#res').text(json['msg']);
 			if ($('#res').text() != text) {

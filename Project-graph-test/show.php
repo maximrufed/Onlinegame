@@ -11,16 +11,21 @@
     <?php
         include 'menu.php';
     ?>
-    <div class="w">
+    <div style="width: 100%">
+    <div class="l"><div class="box" id = "l">aaa</div></div>
+    <div class="r"><div class="box" id = "r"></div></div>
+    <div class="w" id = "res">
         View the game
+    </div>
+    
     </div>
 <!--    <img src="x.png" width="100" height="100" alt="no img">-->
 <!--    <div class = "w" id = "res2">-->
 <!---->
 <!--    </div>-->
-    <div class = "w" id="res">
+<!--    <div class = "w" id="res">-->
 
-    </div>
+<!--    </div>-->
 
     <div class = "map" id="mapid">
 
