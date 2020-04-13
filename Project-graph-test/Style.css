@@ -40,15 +40,21 @@ td {
     /*align-items: center;*/
     /*left: ;*/
     border-style: solid;
-    border-color: black;
+    border-color: #A83414;
     /*height: 100%;*/
     style="display: inline-block;
-    min-width: 500px;
-    min-height: 500px;
-    height: 500px;
-    width: 500px;
+    min-width: 510px;
+    min-height: 510px;
+    height: 510px;
+    width: 510px;
     left: 50%;
     margin: 10px 0 0 -250px;
+    //padding: 10px 10px 20px 10px;
+}
+
+.map2 {
+  position: relative;
+  margin: 5px 5px 5px 5px;
 }
 
 .input_form {

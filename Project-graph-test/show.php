@@ -26,8 +26,10 @@
 
 <!--    </div>-->
     <div style="text-align: center;">
-    <div class = "map" id="mapid">
-	
+    <div class = "map">
+	<div id="mapid" class="map2">
+            
+        </div>
     </div>
     </div>
 </body>
