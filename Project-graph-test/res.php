@@ -1,4 +1,4 @@
-<head>
+﻿<head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Результаты</title>
     <link rel="stylesheet" type="text/css" href="Style.css">
@@ -6,12 +6,12 @@
     <!--    <script type="text/javascript" src="show.js"></script>-->
 </head>
 <body>
-    <div class="w">
-        Results
-    </div>
     <?php
         include 'menu.php';
     ?>
+    <div class="w">
+        Results
+    </div>
     <div style="padding: 10px 10px 10px 10px">
     <table>
         <tr><th>Бот 1</th><th>Бот 2</th><th>Победа 1</th><th>Ничья</th><th>Победа 2</th></tr>

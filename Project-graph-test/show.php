@@ -7,15 +7,14 @@
     <script type="text/javascript" src="show.js"></script>
 </head>
 <body>
-    
     <?php
         include 'menu.php';
     ?>
     <div style="width: 100%">
-    <div class="l"><div class="box" id = "l">aaa</div></div>
-    <div class="r"><div class="box" id = "r"></div></div>
+    <div class="l"><div class="box" id = "l">-----</div></div>
+    <div class="r"><div class="box" id = "r">-----</div></div>
     <div class="w" id = "res">
-        View the game
+        Loading...
     </div>
     
     </div>
@@ -26,8 +25,9 @@
 <!--    <div class = "w" id="res">-->
 
 <!--    </div>-->
-
+    <div style="text-align: center;">
     <div class = "map" id="mapid">
-
+	
+    </div>
     </div>
 </body>

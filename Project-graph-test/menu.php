@@ -1,3 +1,4 @@
+<div class="w">King's bots battle</div>
 <div class="blocks">
     <a href="index.php">
         <div class="block">

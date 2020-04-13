@@ -1,5 +1,7 @@
 ﻿<?php
 
+set_time_limit(400);
+
 $time_bot = 1.5;
 
 $way_to_bots = '';
@@ -160,7 +162,7 @@ function put($type, $x, $y, $v) {
     return $ans;
 }
 
-set_time_limit(120);
+
 $max_size = 10;
 $is_game = ((int)file_get_contents('isgame.txt'));
 $value = 0;
@@ -386,15 +388,17 @@ if (isset($_POST['n']) && !$is_game
 <!--    <script type="text/javascript" src="show.js"></script>-->
 </head>
 <body>
-    <div class="w">
-        Run the game
-    </div>
     <?php
     include 'menu.php';
     ?>
+    <div class="w">
+        Start new game
+    </div>
+<div class="big">
 <form action = "run.php" method = "post">
-    <div>
-        <div class="bot1">
+    <div style = "width: 100%">
+	<div style="left: 0; width: 49%; display: inline-block;">
+        <div class="bot1" style="width: 100%;">
             <div class="ww">Choose first bot</div>
                 <?php
                 $files = glob('*.exe');
@@ -403,7 +407,9 @@ if (isset($_POST['n']) && !$is_game
                 }
                 ?>
         </div>
-        <div class="bot1">
+        </div>
+	<div style="right: 0; width: 49%; display: inline-block; float: right">
+        <div class="bot2" style="width: 100%;">
             <div class="ww">Choose second bot</div>
                 <?php
                 $files = glob('*.exe');
@@ -412,10 +418,12 @@ if (isset($_POST['n']) && !$is_game
                 }
                 ?>
         </div>
-    </div>
+        </div>
+   </div>
     <div class="input">
         <input class = "" id="POST-name" type="text" name="n" placeholder="Размер поля" required>
-        <input type="submit" value="Запустить игру">
+	<br>
+        <input style="margin: 6px 0px 0px 0px;" type="submit" value="Запустить игру">
     </div>
 </form>
 <!---->
@@ -433,6 +441,6 @@ if (isset($_POST['n']) && !$is_game
 <!--        <input type="submit" value="Run">-->
 <!--    </div>-->
 <!--</form>-->
-
+</div>
 </body>
 

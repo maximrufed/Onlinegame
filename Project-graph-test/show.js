@@ -15,7 +15,7 @@ function ok3() {
 }
 
 function upd() {
-	$('.map').css('left', $(window).width() / 2 - 250 + 'px');
+	// $('.map').css('left', $(window).width() / 2 - 250 + 'px');
 	$.ajax({
 		url: 'get.php',
 		success: function(data) {
@@ -25,11 +25,8 @@ function upd() {
 			let n = parseInt(json['n']);
 			$('#l').html(json['p1']);
 			$('#r').html(json['p2']);
-			///let text = json['msg'] + ' ' + json['p1'] + ' VS ' + json['p2'];
 			let text = json['msg'];
 			if (text == '') text = 'Game is in process';
-			// $('#res2').text(text);
-			// $('#res').text(json['msg']);
 			if ($('#res').text() != text) {
 				$('#res').text(text);
 			}
@@ -74,11 +71,19 @@ function start2() {
 }
 
 function start() {
+	// $('.map').css('left', $(window).width() / 2 - 250 + 'px');
 	$.ajax({
 		url: 'get.php',
 		success: function(data) {
 			// if (data == '-1') {	$('.results').html('No answer'); }
 			let json = JSON.parse(data);
+			$('#l').html(json['p1']);
+			$('#r').html(json['p2']);
+			let text = json['msg'];
+			if (text == '') text = 'Game is in process';
+			if ($('#res').text() != text) {
+				$('#res').text(text);
+			}
 			let side = 500;
 			let in_one = 3;
 			let n = parseInt(json['n']);

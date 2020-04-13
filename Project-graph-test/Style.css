@@ -35,21 +35,20 @@ td {
 }
 
 .map {
-  background-color: white;
+    background-color: white;
     position: relative;
     /*align-items: center;*/
     /*left: ;*/
     border-style: solid;
     border-color: black;
     /*height: 100%;*/
-    max-width: 500px;
+    style="display: inline-block;
     min-width: 500px;
-    max-height: 500px;
     min-height: 500px;
     height: 500px;
     width: 500px;
-    /*top: 120px;*/
-    margin: 13px 0 0 0;
+    left: 50%;
+    margin: 0 0 0 -250px;
 }
 
 .input_form {
@@ -67,19 +66,20 @@ td {
 
 .bot1 {
     position: relative;
-    /*top: 80px;*/
+    left: 0;
+    //float: left;
     display: inline-block;
-    width: 49%;
+    width: 99%;
     border-style: solid;
     border-color: brown;
 }
 
 .bot2 {
     position: relative;
-    /*top: 80px;*/
-    /*left: 50%;*/
+    right: 0px;
     display: inline-block;
-    width: 50%;
+    //float: right;
+    width: 99%;
     border-style: solid;
     border-color: brown;
 }
@@ -228,4 +228,8 @@ a {
   top: 0;
   font-size: 40px;
   font-family: Arial;
+}
+
+.big {
+  margin: 10px 16px 10px 10px;
 }
