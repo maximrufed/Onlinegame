@@ -11,8 +11,12 @@
         include 'menu.php';
     ?>
     <div style="width: 100%">
+    <div>
     <div class="l"><div class="box" id = "l">-----</div></div>
     <div class="r"><div class="box" id = "r">-----</div></div>
+    </div>
+    <div class="l2"><div class="box2" id = "l2">0</div></div>
+    <div class="r2"><div class="box2" id = "r2">0</div></div>
     <div class="w" id = "res">
         Loading...
     </div>

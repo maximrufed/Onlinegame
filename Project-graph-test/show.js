@@ -1,4 +1,8 @@
 var nn = 0;
+var p1 = '';
+var p2 = '';
+
+file_way = 'res/';
 
 function ok1() {
 	// alert("ckick 1");
@@ -11,18 +15,25 @@ function ok2() {
 
 function ok3() {
 	// vertical
-	alert("ckick 3");
+	// alert("ckick 3");
 }
 
 function upd() {
+	
 	// $('.map').css('left', $(window).width() / 2 - 250 + 'px');
 	$.ajax({
 		url: 'get.php',
 		success: function(data) {
+			// alert(data);
 			if (data == '-1') $('.results').html('No answer');
 			// $('#res').html(data);
 			let json = JSON.parse(data);
 			let n = parseInt(json['n']);
+
+			window.p1 = json['p1'];
+			window.p2 = json['p2'];
+			//alert(window.p1)
+
 			if ($('#l').text() != json['p1']) $('#l').text(json['p1']);
 			if ($('#r').text() != json['p2']) $('#r').text(json['p2']);
 			let text = json['msg'];
@@ -43,26 +54,46 @@ function upd() {
 			let map2 = json['map3'];
 			for (let i = 0; i < n; i++) {
 				for (let j = 0; j < n; j++) {
-					let $o = '0' + map1[j][i] + '.png';
+					let $o = file_way + '0' + map1[j][i] + '.png';
 					$('div[x=' + i + '][y=' + j + '][t=1]').find('img').attr('src', $o);
 				}
 			}
 			for (let i = 0; i < n + 1; i++) {
 				for (let j = 0; j < n; j++) {
-					let $o = '1' + map2[i][j] + '.png';
+					let $o = file_way + '1' + map2[i][j] + '.png';
 					$('div[x=' + i + '][y=' + j + '][t=2]').find('img').attr('src', $o);
 				}
 			}
 			for (let i = 0; i < n; i++) {
 				for (let j = 0; j < n + 1; j++) {
-					let $o = '2' + map3[i][j] + '.png';
+					let $o = file_way + '2' + map3[i][j] + '.png';
 					$('div[x=' + i + '][y=' + j + '][t=3]').find('img').attr('src', $o);
 				}
 			}
 			// $('.results').text(json['msg']);
 		}
 	});
-
+	// alert(window.p1 + '  - ' + window.p2);
+	$.ajax({
+		url: 'get_stat.php',
+		method: "POST",
+		data: {
+		  "p1": window.p1,
+		  "p2": window.p2
+		},
+		success: function(data) {
+			//alert("OK");
+			// alert(data);
+			let json = JSON.parse(data);
+			//alert(json);
+			//alert('name = ' + p1);
+			let t1 = json['w1'];
+			let t3 = json['w3'];
+			//alert(t1 + ' = ' + t2);
+			if ($('#l2').text() != t1) $('#l2').text(t1);
+			if ($('#r2').text() != t3) $('#r2').text(t3);
+		}
+	});
 }
 
 function start2() {
@@ -71,12 +102,20 @@ function start2() {
 }
 
 function start() {
-	// $('.map').css('left', $(window).width() / 2 - 250 + 'px');
+	// var p1 = '';
+	// var p2 = '';
 	$.ajax({
 		url: 'get.php',
 		success: function(data) {
+			// alert(data);
 			// if (data == '-1') {	$('.results').html('No answer'); }
 			let json = JSON.parse(data);
+
+			 window.p1 = json['p1'];
+			 window.p2 = json['p2'];
+			// alert(json['p1']);
+			// alert(window.p1);
+
 			$('#l').html(json['p1']);
 			$('#r').html(json['p2']);
 			let text = json['msg'];
@@ -92,9 +131,9 @@ function start() {
 			let map1 = json['map1'];
 			let map3 = json['map2'];
 			let map2 = json['map3'];
-			imge = '<img src="0e.png" width="' + (sq_side * (in_one)).toString() + '" height="' + (sq_side * (in_one)).toString() + '" alt="no img">';
-			imgg = '<img src="0g.png" width="' + (sq_side * (in_one)).toString() + '" height="' + (sq_side * (in_one)).toString() + '" alt="no img">';
-			imgr = '<img src="0r.png" width="' + (sq_side * (in_one)).toString() + '" height="' + (sq_side * (in_one)).toString() + '" alt="no img">';
+			imge = '<img src="' + file_way + '0e.png" width="' + (sq_side * (in_one)).toString() + '" height="' + (sq_side * (in_one)).toString() + '" alt="no img">';
+			imgg = '<img src="' + file_way + '0g.png" width="' + (sq_side * (in_one)).toString() + '" height="' + (sq_side * (in_one)).toString() + '" alt="no img">';
+			imgr = '<img src="' + file_way + '0r.png" width="' + (sq_side * (in_one)).toString() + '" height="' + (sq_side * (in_one)).toString() + '" alt="no img">';
 			let arr = {
 				'e': imge,
 				'g': imgg,
@@ -110,9 +149,9 @@ function start() {
 					$('#mapid').append($o);
 				}
 			}
-			imge = '<img src="1e.png" width="' + (sq_side * (in_one + 2)).toString() + '" height="' + (sq_side).toString() + '" alt="no img">';
-			imgg = '<img src="1g.png" width="' + (sq_side * (in_one + 2)).toString() + '" height="' + (sq_side).toString() + '" alt="no img">';
-			imgr = '<img src="1r.png" width="' + (sq_side * (in_one + 2)).toString() + '" height="' + (sq_side).toString() + '" alt="no img">';
+			imge = '<img src="' + file_way + '1e.png" width="' + (sq_side * (in_one + 2)).toString() + '" height="' + (sq_side).toString() + '" alt="no img">';
+			imgg = '<img src="' + file_way + '1g.png" width="' + (sq_side * (in_one + 2)).toString() + '" height="' + (sq_side).toString() + '" alt="no img">';
+			imgr = '<img src="' + file_way + '1r.png" width="' + (sq_side * (in_one + 2)).toString() + '" height="' + (sq_side).toString() + '" alt="no img">';
 			arr = {
 				'e': imge,
 				'g': imgg,
@@ -129,9 +168,9 @@ function start() {
 				}
 			}
 			//vertical
-			imge = '<img src="2e.png" height="' + (sq_side * (in_one + 2)).toString() + '" width="' + (sq_side).toString() + '" alt="no img">';
-			imgg = '<img src="2g.png" height="' + (sq_side * (in_one + 2)).toString() + '" width="' + (sq_side).toString() + '" alt="no img">';
-			imgr = '<img src="2r.png" height="' + (sq_side * (in_one + 2)).toString() + '" width="' + (sq_side).toString() + '" alt="no img">';
+			imge = '<img src="' + file_way + '2e.png" height="' + (sq_side * (in_one + 2)).toString() + '" width="' + (sq_side).toString() + '" alt="no img">';
+			imgg = '<img src="' + file_way + '2g.png" height="' + (sq_side * (in_one + 2)).toString() + '" width="' + (sq_side).toString() + '" alt="no img">';
+			imgr = '<img src="' + file_way + '2r.png" height="' + (sq_side * (in_one + 2)).toString() + '" width="' + (sq_side).toString() + '" alt="no img">';
 			arr = {
 				'e': imge,
 				'g': imgg,
@@ -149,7 +188,8 @@ function start() {
 			}
 		}
 	});
-
+	// alert(window.p1);
+	
 }
 
 $(document).ready(start2);

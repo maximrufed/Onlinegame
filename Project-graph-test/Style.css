@@ -48,7 +48,7 @@ td {
     height: 510px;
     width: 510px;
     left: 50%;
-    margin: 10px 0 0 -250px;
+    margin: 10px 0 0 -258px;
     //padding: 10px 10px 20px 10px;
 }
 
@@ -213,6 +213,13 @@ a {
   border-color: #A83414;
 }
 
+.box2 {
+  margin: 10px 10px 10px 10px;
+  padding: 0px 15px 0px 15px;
+  border-style: solid;
+  border-color: #A83414;
+}
+
 .l {
   position: relative;
   //display: block;
@@ -237,6 +244,32 @@ a {
   font-size: 40px;
   font-family: Arial;
   margin: 59px 0 0 0;
+}
+
+.l2 {
+  position: absolute;
+  //display: block;
+  //float: left;
+  // width: 100%;
+  //text-align: left;
+  left: 0;
+  // top: 0;
+  font-size: 40px;
+  font-family: Arial;
+  margin: 145px 0 0 0;
+}
+
+.r2 {
+  position: absolute;
+  // display: block;
+  float: right;
+  // width: 100%;
+  //text-align: right;
+  right: 0;
+  // top: 0;
+  font-size: 40px;
+  font-family: Arial;
+  margin: 145px 0 0 0;
 }
 
 .big {
