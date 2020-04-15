@@ -222,12 +222,10 @@ if (isset($_POST['n']) && !$is_game
             $time_start = time() + microtime() - $time_start;
 //            echo strval($time_start) + '<br>';
             if ($time_start - $time_bot > $eps) {
-                $msg = 'Time limit';
+                $msg = ' (Time limit)';
                 $winner = !$t;
                 break;
             }
-
-
 
             $file = $way_to_bots . 'turn.txt';
             $f = fopen($file, "r") or
@@ -241,7 +239,7 @@ if (isset($_POST['n']) && !$is_game
             fclose($f);
             if (count($items) != 3) {
                 $winner = 1 - $t;
-                $msg = 'Incorrect turn';
+                $msg = ' (Incorrect turn)';
                 break;
             }
 //            foreach ($a as $item) echo $item . ' ';
@@ -264,7 +262,7 @@ if (isset($_POST['n']) && !$is_game
                         put_map($t);
                     } else {
                         $winner = 1 - $t;
-//                        $msg = "Incorrect turn [type, x, y]- {" . $type . ", " . $x . ", " . $y . "}";
+//                        $msg = " (Incorrect turn)"; // [type, x, y]- {" . $type . ", " . $x . ", " . $y . "}";
                         $msg = "Incorrect turn";
                         break;
                     }
@@ -275,7 +273,7 @@ if (isset($_POST['n']) && !$is_game
                         put_map($t);
                     } else {
                         $winner = 1 - $t;
-//                        $msg = "Incorrect turn [type, x, y]- {" . $type . ", " . $x . ", " . $y . "}";
+//                        $msg = " (Incorrect turn) // [type, x, y]- {" . $type . ", " . $x . ", " . $y . "}";
                         $msg = "Incorrect turn";
                         break;
                     }
@@ -302,13 +300,13 @@ if (isset($_POST['n']) && !$is_game
 //        $t = !$t;
 //        echo $winner;
         if ($winner == 0) {
-            $msg = 'Красные победили! ' . $msg;
+            $msg = 'Red wins! ' . $msg;
         } else
         if ($winner == 1) {
-            $msg = 'Зелёные победили! ' . $msg;
+            $msg = 'Green wins! ' . $msg;
         } else
         if ($winner == 2) {
-            $msg = 'Ничья! ' . $msg;
+            $msg = 'Draw! ' . $msg;
         }
         put_map($t);
 
@@ -338,9 +336,9 @@ if (isset($_POST['n']) && !$is_game
                     if (isset($json->$text)) {
                         $j = json_decode($json->$text);
                         if ($res == 0) {
-                            $j->w1 += 1;
-                        } else if ($res == 1) {
                             $j->w3 += 1;
+                        } else if ($res == 1) {
+                            $j->w1 += 1;
                         } else if ($res == 2) {
                             $j->w2 += 1;
                         }
@@ -348,9 +346,9 @@ if (isset($_POST['n']) && !$is_game
                     } else {
                         $j = array("w1" => 0, "w2" => 0, "w3" => 0);
                         if ($res == 0) {
-                            $j['w1'] += 1;
-                        } else if ($res == 1) {
                             $j['w3'] += 1;
+                        } else if ($res == 1) {
+                            $j['w1'] += 1;
                         } else if ($res == 2) {
                             $j['w2'] += 1;
                         }
@@ -382,7 +380,7 @@ if (isset($_POST['n']) && !$is_game
 
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>Новая игра</title>
+    <title>King's bots battle</title>
     <link rel="stylesheet" type="text/css" href="Style.css">
     <script src="jquery.js"></script>
 <!--    <script type="text/javascript" src="show.js"></script>-->
@@ -421,9 +419,9 @@ if (isset($_POST['n']) && !$is_game
         </div>
    </div>
     <div class="input">
-        <input class = "" id="POST-name" type="text" name="n" placeholder="Размер поля" required>
+        <input class = "" id="POST-name" type="text" name="n" placeholder="Write map size" required>
 	<br>
-        <input style="margin: 6px 0px 0px 0px;" type="submit" value="Запустить игру">
+        <input style="margin: 6px 0px 0px 0px;" type="submit" value="Start game">
     </div>
 </form>
 <!---->

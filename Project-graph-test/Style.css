@@ -8,6 +8,10 @@ table {
 th {
     border: 2px solid grey;
 }
+
+in {
+    padding: 0px 0px 0px 3px;
+}
 /* границы ячеек тела таблицы */
 td {
     border: 2px solid grey;
@@ -48,7 +52,7 @@ td {
     height: 510px;
     width: 510px;
     left: 50%;
-    margin: 10px 0 0 -258px;
+    margin: 67px 0 0 -258px;
     //padding: 10px 10px 20px 10px;
 }
 
@@ -274,4 +278,30 @@ a {
 
 .big {
   margin: 10px 16px 10px 10px;
+}
+
+.but1 {
+  position: absolute;
+  right: 9px;
+  top: 120px;
+  
+  border-style: solid;
+  border-color: black;	
+  
+  background-color: #A83414; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 14px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.img1 {
+  position: absolute;
+  top: 200px;
+  left: 600px;
 }

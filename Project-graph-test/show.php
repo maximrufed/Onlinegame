@@ -1,7 +1,7 @@
 <head>
    
     <meta charset="utf-8">
-    <title>View</title>
+    <title>King's bots battle</title>
     <link rel="stylesheet" type="text/css" href="Style.css">
     <script src="jquery.js"></script>
     <script type="text/javascript" src="show.js"></script>
@@ -17,7 +17,7 @@
     </div>
     <div class="l2"><div class="box2" id = "l2">0</div></div>
     <div class="r2"><div class="box2" id = "r2">0</div></div>
-    <div class="w" id = "res">
+    <div class="w" style="left: 0; right: 0; position: absolute;" id = "res">
         Loading...
     </div>
     

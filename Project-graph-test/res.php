@@ -1,23 +1,31 @@
 ﻿<head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>Результаты</title>
+    <title>King's bots battle</title>
     <link rel="stylesheet" type="text/css" href="Style.css">
 <!--    <script src="jquery.js"></script>-->
     <!--    <script type="text/javascript" src="show.js"></script>-->
 </head>
 <body>
+    <form method = "POST" action="res.php">
+	<button class="but1" href>Clear</button>
+	<input type="hidden" name="clear" value="1">
+    </form>
     <?php
         include 'menu.php';
     ?>
     <div class="w">
         Results
     </div>
-    <div style="padding: 10px 10px 10px 10px">
+    <div style="padding: 10px 10px 10px 10px; font-family: Arial;">
     <table>
-        <tr><th>Бот 1</th><th>Бот 2</th><th>Победа 1</th><th>Ничья</th><th>Победа 2</th></tr>
+        <tr><th>Bot 1</th><th>Bot 2</th><th>Win 1</th><th>Draw</th><th>Win 2</th></tr>
 
     <?php
-
+    if (isset($_POST['clear']) && intval($_POST['clear']) == 1) {
+        file_put_contents("data2.json", '{}');
+    }
+    
+    
     $json = json_decode(file_get_contents("data2.json"));
 
     foreach ($json as $key => $value) {
@@ -32,10 +40,10 @@
                 break;
             }
         }
-        echo '<td>' . $p1 . '</td><td>' . $p2 . '</td>';
+        echo '<td><in>' . $p1 . '</in></td><td><in>' . $p2 . '</in></td>';
         $v = json_decode($value);
         foreach ($v as $k => $val) {
-            echo '<td>' . $val . '</td>';
+            echo '<td><in>' . $val . '</in></td>';
         }
         echo '</tr>';
     }

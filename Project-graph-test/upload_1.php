@@ -2,7 +2,7 @@
 <head>
    
     <meta charset="utf-8">
-    <title>Main</title>
+    <title>King's bots battle</title>
     <link rel="stylesheet" type="text/css" href="Style.css">
 </head>
 <body>
@@ -136,11 +136,35 @@ if (isset($_FILES[$input_name])) {
 	}
 }
 ?>
+<img style="position: absolute; top: 115px; left: 1000px" src="res/pic3.png" alt="no img">
+<div class="big" style="font-family: arial;">
+	<b>Ограничение по времени: 1 секунда</b><br>
+	<p>
+	<b>Входные данные (через файл "map.txt")</b><br>
+	В первой строке находится целое положительное число n, задающее размер поля (1 <= n <= 10)<br>
+	Далее следует n строк, в каждой по n чисел через пробел, которые задают цвета квадратов<br>
+		(0 - пустой квадрат, 1 - квадрат твоего цвета, 2 - квадрат чужого цвета)<br>
+	Далее следует пустая строка.<br>
+	Далее следует n строк, в каждой по n + 1 чисел через пробел, которые задают цвета вертикальных стен<br>
+		(0 - пустая стена, 1 - стена твоего цвета, 2 - стена чужого цвета)<br>
+	Далее следует пустая строка.<br>
+	Далее следует n + 1 строкa, в каждой по n чисел через пробел, которые задают цвета горизонтальных стен<br>
+		(0 - пустой стена, 1 - стена твоего цвета, 2 - стена чужого цвета)<br>
+	<b>Входные данные (в файл "turn.txt")</b><br>
+	Выведите три числа через пробел.
+	Первое - тип стенки (1 - вертикальная, 2 - горизонтальная)<br>
+	Второе - номер строки (Нумерация с 1)<br>
+	Третье - номер столбца (Нумерация с 1)<br>
+	</p>
+	В качестве бота вы можете загрузить файл с расширением *.exe<br>
+	<div style="margin: 10px 0 0 0;">
+	<button style="display:block;width:120px; height:30px; font-size: 14px;" onclick="document.getElementById('getFile').click()">Choose File</button>
+	<form action="upload_1.php" method="post" enctype="multipart/form-data">
+		<input type="file" id="getFile" style="display: none;" name="file[]" value="" multiple>
+		<input type="submit" style="margin: 6px 0 0 0; display:block;width:120px; height:30px;" value="Submit">
+	</form>
+	</div>
+</div>
 
-<form action="upload_1.php" method="post" enctype="multipart/form-data">
-	<input type="file" name="file[]" multiple>
-	<br>
-	<input type="submit" style="margin: 6px 0px 0px 0px;" value="Отправить">
-</form>
 </div>
 </body>
